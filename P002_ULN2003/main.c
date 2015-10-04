@@ -40,7 +40,7 @@ void Setup()
 {
 	/* Setup PORTD */
 	/* Set pins 2 and 3 as output , and pins 0,1 and 4 to 7 as input*/
-	/* We skip pin 0 because this pin is needed for programming the chip */
+	/* We skip pin 0 and 1 because these pins are needed for programming the chip */
 	DDRD = 0b00001100;
 }
 
