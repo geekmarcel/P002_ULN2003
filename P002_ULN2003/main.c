@@ -10,7 +10,7 @@
  *
  * Hardware setup:	
  *				Pin 2 of PORTD connected to pin 1 of ULN, 
- *				Pin 3 of PORTS connected to pin 2 of ULN.
+ *				Pin 3 of PORTD connected to pin 2 of ULN.
  *
  * Note(s):
  *--------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -30,13 +30,13 @@
 
 
 /***************************************************************************
-*  Function:		Setup(int number)
-*  Description:		Setup PORTD and the timer, this function need to be called at
+*  Function:		Setup()
+*  Description:		Setup PORTD, this function need to be called at
 *				the beginning of main.
 *  Receives:		Nothing
 *  Returns:		Nothing
 ***************************************************************************/
-void Setup()
+void Setup(void)
 {
 	/* Setup PORTD */
 	/* Set pins 2 and 3 as output , and pins 0,1 and 4 to 7 as input*/
@@ -58,9 +58,10 @@ int main(void)
 	/* Setup PORT D */
 	Setup();
 	
-	/* Test the code toggling the relays */
+	/* Test code to toggle the relays */
 	while(1)
 	{
+		/* Set output */
 		PORTD = (PIND & 0xF3) | (led++ << 2);
 
 		/* Start over if we at the end */
